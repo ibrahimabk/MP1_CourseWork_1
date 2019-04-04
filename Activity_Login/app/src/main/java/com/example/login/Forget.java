@@ -17,8 +17,10 @@ public class Forget extends AppCompatActivity {
     EditText Email;
     Button Sent;
     AwesomeValidation awesomeValidation;
-TextView mTextViewSignUp;
-TextView mTextViewSignIn;
+    TextView mTextViewSignUp;
+    TextView mTextViewSignIn;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ TextView mTextViewSignIn;
                 startActivity(ForgetIntent);
             }
         });
+
         mTextViewSignUp=(TextView)findViewById(R.id.view_SingUp);
         mTextViewSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,9 +62,7 @@ TextView mTextViewSignIn;
                 else{
                     Toast.makeText(Forget.this,"Error",Toast.LENGTH_SHORT);
                 }
-
             }
         });
-
     }
 }

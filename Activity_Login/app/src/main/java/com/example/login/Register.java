@@ -26,17 +26,19 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         db=new DatabaseHelper(this);
-        awesomeValidation =new AwesomeValidation(ValidationStyle.BASIC);
-        mTextViewLogin=(TextView)findViewById(R.id.view_Singin);
-        mTextViewLogin.setOnClickListener(new View.OnClickListener() {
+
+            awesomeValidation =new AwesomeValidation(ValidationStyle.BASIC);
+            mTextViewLogin=(TextView)findViewById(R.id.view_Singin);
+            mTextViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent LoginIntent=new Intent(Register.this,MainActivity.class);
                 startActivity(LoginIntent);
             }
         });
-        mTextViewForget=(TextView)findViewById(R.id.view_Forget);
-        mTextViewForget.setOnClickListener(new View.OnClickListener() {
+            mTextViewForget=(TextView)findViewById(R.id.view_Forget);
+            mTextViewForget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent forgetIntent=new Intent(Register.this,Forget.class);
@@ -44,26 +46,25 @@ public class Register extends AppCompatActivity {
             }
         });
             updateU();
-    }
-    private void updateU(){
-        Firstname=(EditText)findViewById(R.id.Firsname);
-        Username=(EditText)findViewById(R.id.Username1);
-        Password=(EditText)findViewById(R.id.Password1);
-        Email=(EditText)findViewById(R.id.Email);
-        ComfirmPassword=(EditText)findViewById(R.id.ComfirmPassword);
-        Register=(Button)findViewById(R.id.review_login);
+        }
+        private void updateU(){
+
+            Firstname=(EditText)findViewById(R.id.Firsname);
+            Username=(EditText)findViewById(R.id.Username1);
+            Password=(EditText)findViewById(R.id.Password1);
+            Email=(EditText)findViewById(R.id.Email);
+            ComfirmPassword=(EditText)findViewById(R.id.ComfirmPassword);
+            Register=(Button)findViewById(R.id.review_login);
+
+            String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
+
+            awesomeValidation.addValidation(Register.this,R.id.Firsname,"[a-zA-Z\\s]+",R.string.Usernamee);
+            awesomeValidation.addValidation(Register.this,R.id.Password1,regexPassword ,R.string.Passwordd);
+            awesomeValidation.addValidation(Register.this,R.id.ComfirmPassword,R.id.Password1,R.string.ComfirmPasswordd);
+            awesomeValidation.addValidation(Register.this,R.id.Email,android.util.Patterns.EMAIL_ADDRESS,R.string.Emaill);
 
 
-
-        String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
-
-        awesomeValidation.addValidation(Register.this,R.id.Firsname,"[a-zA-Z\\s]+",R.string.Usernamee);
-        awesomeValidation.addValidation(Register.this,R.id.Password1,regexPassword ,R.string.Passwordd);
-        awesomeValidation.addValidation(Register.this,R.id.ComfirmPassword,R.id.Password1,R.string.ComfirmPasswordd);
-        awesomeValidation.addValidation(Register.this,R.id.Email,android.util.Patterns.EMAIL_ADDRESS,R.string.Emaill);
-
-
-        Register.setOnClickListener(new View.OnClickListener() {
+            Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -72,9 +73,12 @@ public class Register extends AppCompatActivity {
                     String strSurname = Username.getText().toString();
                     String strEmail = Email.getText().toString();
                     String strPassword=Password.getText().toString();
-                Boolean chkusn=db.chkusn(strSurname);
-                if(chkusn==true) {
+
+                    Boolean chkusn=db.chkusn(strSurname);
+
+                    if(chkusn==true) {
                     Boolean insert = db.insert(strFirstName, strSurname, strEmail, strPassword);
+
                     if (insert == true) {
 
                         Toast.makeText(getApplicationContext(), "Successfully Saved!", Toast.LENGTH_SHORT).show();
@@ -84,19 +88,15 @@ public class Register extends AppCompatActivity {
                         Email.setText("");
                         Password.setText("");
                         ComfirmPassword.setText("");
+
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }
                 }
-                else{
+                    else{
+
                     Toast.makeText(getApplicationContext(),"Wrong Username or Password",Toast.LENGTH_SHORT);
                 }
-
-
-
-
-
-
             }
 
         });

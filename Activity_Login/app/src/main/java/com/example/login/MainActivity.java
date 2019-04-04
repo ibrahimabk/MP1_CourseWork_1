@@ -15,7 +15,7 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 
 
-@SuppressWarnings("ALL")
+
 public class MainActivity extends AppCompatActivity {
     EditText Username, Password;
     Button Login;
