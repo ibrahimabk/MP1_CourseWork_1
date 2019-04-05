@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="30dp"
-        android:text="@string/wellcome_user"/>
+        android:text="welcome_user"
+        tools:ignore="HardcodedText" />
 
 
 

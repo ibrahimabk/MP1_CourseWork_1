@@ -50,7 +50,7 @@ public class Forget extends AppCompatActivity {
     private void updateUI2 (){
         Email=(EditText)findViewById(R.id.Mail);
         Sent=(Button)findViewById(R.id.liniry2);
-        awesomeValidation.addValidation(Forget.this,R.id.Mail,android.util.Patterns.EMAIL_ADDRESS,R.string.Emaill);
+        awesomeValidation.addValidation(Forget.this,R.id.Mail,android.util.Patterns.EMAIL_ADDRESS,R.string.Emailll);
 
         Sent.setOnClickListener(new View.OnClickListener() {
             @Override

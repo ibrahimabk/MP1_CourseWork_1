@@ -12,10 +12,11 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 
+
 public class Register extends AppCompatActivity {
 
         DatabaseHelper db;
-        EditText Firstname,Username,Password,ComfirmPassword,Email;
+        EditText mTextFirstname,mTextUsername,mTextPassword,mTextComfirmPassword,mTextEmail;
         Button Register;
         AwesomeValidation awesomeValidation;
         TextView mTextViewLogin;
@@ -49,50 +50,54 @@ public class Register extends AppCompatActivity {
         }
         private void updateU(){
 
-            Firstname=(EditText)findViewById(R.id.Firsname);
-            Username=(EditText)findViewById(R.id.Username1);
-            Password=(EditText)findViewById(R.id.Password1);
-            Email=(EditText)findViewById(R.id.Email);
-            ComfirmPassword=(EditText)findViewById(R.id.ComfirmPassword);
-            Register=(Button)findViewById(R.id.review_login);
+            mTextFirstname=(EditText)findViewById(R.id.Firsname);
+            mTextUsername=(EditText)findViewById(R.id.Username1);
+            mTextPassword=(EditText)findViewById(R.id.Password1);
+            mTextEmail=(EditText)findViewById(R.id.Email);
+            mTextComfirmPassword=(EditText)findViewById(R.id.ComfirmPassword);
+
 
             String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
 
-            awesomeValidation.addValidation(Register.this,R.id.Firsname,"[a-zA-Z\\s]+",R.string.Usernamee);
-            awesomeValidation.addValidation(Register.this,R.id.Password1,regexPassword ,R.string.Passwordd);
-            awesomeValidation.addValidation(Register.this,R.id.ComfirmPassword,R.id.Password1,R.string.ComfirmPasswordd);
-            awesomeValidation.addValidation(Register.this,R.id.Email,android.util.Patterns.EMAIL_ADDRESS,R.string.Emaill);
+            awesomeValidation.addValidation(Register.this,R.id.Firsname,"[a-zA-Z\\s]+",R.string.Usernameee);
+            awesomeValidation.addValidation(Register.this,R.id.Password1,regexPassword ,R.string.Passworddd);
+            awesomeValidation.addValidation(Register.this,R.id.ComfirmPassword,R.id.Password1,R.string.ComfirmPassworddd);
+            awesomeValidation.addValidation(Register.this,R.id.Email,android.util.Patterns.EMAIL_ADDRESS,R.string.Emailll);
 
-
+            Register=(Button)findViewById(R.id.review_login);
             Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(awesomeValidation.validate()){
 
-                    String strFirstName=Firstname.getText().toString();
-                    String strSurname = Username.getText().toString();
-                    String strEmail = Email.getText().toString();
-                    String strPassword=Password.getText().toString();
+
+
+                    String strFirstName=mTextFirstname.getText().toString();
+                    String strSurname = mTextUsername.getText().toString();
+                    String strEmail = mTextEmail.getText().toString();
+                    String strPassword=mTextPassword.getText().toString();
 
                     Boolean chkusn=db.chkusn(strSurname);
 
                     if(chkusn==true) {
-                    Boolean insert = db.insert(strFirstName, strSurname, strEmail, strPassword);
+                        Boolean insert = db.insert(strFirstName, strSurname, strEmail, strPassword);
 
-                    if (insert == true) {
+                        if (insert == true) {
 
-                        Toast.makeText(getApplicationContext(), "Successfully Saved!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Successfully Saved!", Toast.LENGTH_SHORT).show();
 
-                        Firstname.setText("");
-                        Username.setText("");
-                        Email.setText("");
-                        Password.setText("");
-                        ComfirmPassword.setText("");
+                            mTextFirstname.setText("");
+                            mTextUsername.setText("");
+                            mTextEmail.setText("");
+                            mTextPassword.setText("");
+                            mTextComfirmPassword.setText("");
 
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                    }
-                }
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        }
+
+                    }    }
                     else{
 
                     Toast.makeText(getApplicationContext(),"Wrong Username or Password",Toast.LENGTH_SHORT);
@@ -100,5 +105,5 @@ public class Register extends AppCompatActivity {
             }
 
         });
-    }
+                }
 }
