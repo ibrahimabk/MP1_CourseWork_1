@@ -59,7 +59,8 @@ public class Register extends AppCompatActivity {
 
             String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
 
-            awesomeValidation.addValidation(Register.this,R.id.Firsname,"[a-zA-Z\\s]+",R.string.Usernameee);
+            awesomeValidation.addValidation(Register.this,R.id.Firsname,"[a-zA-Z\\s]+",R.string.Firstnameee);
+            awesomeValidation.addValidation(Register.this,R.id.Username1,"[a-zA-Z\\s]+",R.string.Usernameee);
             awesomeValidation.addValidation(Register.this,R.id.Password1,regexPassword ,R.string.Passworddd);
             awesomeValidation.addValidation(Register.this,R.id.ComfirmPassword,R.id.Password1,R.string.ComfirmPassworddd);
             awesomeValidation.addValidation(Register.this,R.id.Email,android.util.Patterns.EMAIL_ADDRESS,R.string.Emailll);

@@ -13,7 +13,16 @@
           "package_name": "com.example.login"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "111018146205-irj0b5bi3ogbh7qrfrcr28f04roh8kov.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.login",
+            "certificate_hash": "eef8fe8570d893535c4614af5e55dfb14a40c8c7"
+          }
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBSK-_9ci1jRJRAfR8yuTVBmDoDnaZ5q1o"

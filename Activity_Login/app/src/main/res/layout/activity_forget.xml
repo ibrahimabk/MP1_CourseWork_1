@@ -10,7 +10,6 @@
 
     <RelativeLayout
 
-
         android:layout_width="wrap_content"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
@@ -23,12 +22,11 @@
             android:layout_height="80dp"
             app:srcCompat="@drawable/logo"
             android:scaleType="fitCenter"/>
-        //android:adjustViewSounds="true"/>
+
         <RelativeLayout
             android:id="@+id/rellay1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_below="@id/imgView_logo">
 
             <TextView
@@ -81,13 +79,13 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/liniry2"
+                android:id="@+id/Sent"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_marginStart="81dp"
-                android:layout_marginLeft="81dp"
+                android:layout_marginStart="58dp"
+                android:layout_marginLeft="58dp"
                 android:layout_marginTop="180dp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="sans-serif-condensed-medium"

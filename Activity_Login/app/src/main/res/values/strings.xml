@@ -1,15 +1,18 @@
 <resources>
-    <string name="app_name" >Activity_Login</string>
+    <string name="app_name">Activity_Login</string>
     <string name="login">Login</string>
-    <string name="password" >Password</string>
-    <string name="username" >Username</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
     <string name="login_now">Login_now</string>
-    <string name="sign_up" >Sign Up</string>
-    <string name="forget_password" >Forget Password</string>
-
-    <string name="Usernameee" >Enter Your Username</string>
-    <string name="Emailll" >Enter Correct Email</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="facebook_app_id">280531602832955</string>
+    <string name="Firstnameee">Enter Your Firstname</string>
+    <string name="Usernameee">Enter Your Username</string>
+    <string name="Emailll">Enter Correct Email</string>
     <string name="Passworddd">Enter Your Password</string>
-    <string name="ComfirmPassworddd" >Password do not match</string>
+    <string name="ComfirmPassworddd">Password do not match</string>
     <string name="register">Register</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps2">Map</string>
 </resources>

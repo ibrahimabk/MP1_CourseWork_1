@@ -48,8 +48,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
       else return  true;
     }
 
+    public void updatePassword(String Email,String Password){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues values=new ContentValues();
+        values.put("Password",Password);
+        db.update("Students",values,"Email"+"=?",new String[] {Email});
+        db.close();
+    }
+
     public  boolean chkusn(String Username){
+
         SQLiteDatabase db=this.getReadableDatabase();
+
         Cursor cursor=db.rawQuery("select * from students where Username=?",new String[] {Username});
       if(cursor.getCount()>0)return  false;
       else return  true;
@@ -58,14 +68,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean checkUser(String Username, String Password) {
 
         SQLiteDatabase db = getReadableDatabase();
-
         Cursor cursor = db.rawQuery("select * from students where Username=? and Password=? ",new String [] {Username,Password});
         if(cursor.getCount()>0) return  true;
         else return false;
 
     }
-
-
 }
 
 
